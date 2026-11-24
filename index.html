@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desafio do Saber</title>
+<style>
+:root{--bg:#0b1020;--panel:#151d33;--panel2:#1c2742;--text:#f4f7ff;--muted:#a9b5d0;--accent:#7c9cff;--good:#36d399;--bad:#ff7185;--gold:#ffd166}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 5%,#263768 0,transparent 34%),radial-gradient(circle at 90% 90%,#28214f 0,transparent 35%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial}
+button{font:inherit;cursor:pointer;border:0}.wrap{max-width:1050px;margin:auto;padding:28px 18px 50px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:25px}.brand{display:flex;align-items:center;gap:12px}.logo{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,#7c9cff,#9a72ff);font-size:24px;box-shadow:0 8px 25px #7c9cff44}.brand h1{font-size:20px;margin:0}.brand small{color:var(--muted)}.pill{border:1px solid #ffffff20;border-radius:99px;padding:8px 13px;color:var(--muted);font-size:13px}
+.screen{display:none}.screen.active{display:block}.hero{padding:36px;border:1px solid #ffffff18;border-radius:26px;background:linear-gradient(135deg,#1b2948dd,#171d34ee);box-shadow:0 25px 70px #0005}.eyebrow{color:#a9bcff;text-transform:uppercase;letter-spacing:2px;font-weight:800;font-size:11px}.hero h2{font-size:clamp(32px,6vw,54px);line-height:1.05;margin:12px 0}.hero p{color:var(--muted);max-width:650px;line-height:1.65}.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin:25px 0}.subject{padding:13px;border:1px solid #ffffff18;border-radius:14px;background:#ffffff08;color:var(--text);font-weight:650}.subject span{display:block;font-size:22px;margin-bottom:5px}.primary{background:linear-gradient(135deg,#7897ff,#9a75ff);color:white;padding:14px 22px;border-radius:13px;font-weight:800;box-shadow:0 8px 24px #7c9cff38}.secondary{background:#ffffff10;color:var(--text);border:1px solid #ffffff20;padding:12px 17px;border-radius:12px;font-weight:700}.primary:hover,.secondary:hover,.answer:hover{transform:translateY(-1px);filter:brightness(1.08)}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:15px}.stat{background:var(--panel);border:1px solid #ffffff12;border-radius:16px;padding:14px}.stat small{color:var(--muted);display:block;font-size:12px}.stat strong{font-size:22px}.gamebox{background:var(--panel);border:1px solid #ffffff16;border-radius:22px;padding:clamp(18px,4vw,32px);box-shadow:0 20px 55px #0004}.progressline{height:8px;background:#ffffff12;border-radius:99px;overflow:hidden;margin:12px 0 24px}.progressline div{height:100%;width:0;background:linear-gradient(90deg,#7c9cff,#b18cff);transition:width .3s}.qmeta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:13px}.tag{background:#7c9cff20;color:#b9c9ff;padding:6px 10px;border-radius:99px}.question{font-size:clamp(21px,3vw,29px);line-height:1.3;margin:24px 0}.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}.answer{text-align:left;background:var(--panel2);border:1px solid #ffffff17;border-radius:14px;padding:16px;color:var(--text);font-weight:650;min-height:65px;transition:.15s}.answer .letter{display:inline-grid;place-items:center;width:27px;height:27px;border-radius:9px;background:#ffffff12;margin-right:10px;color:#c6d2f3}.answer.correct{border-color:var(--good);background:#36d39918}.answer.wrong{border-color:var(--bad);background:#ff718518}.answer:disabled{cursor:default;transform:none}.feedback{margin-top:17px;padding:14px;border-radius:13px;background:#ffffff0b;color:var(--muted);line-height:1.5;display:none}.feedback.show{display:block}.feedback strong{color:var(--text)}.gamefoot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:20px}.timerbar{height:5px;background:#ffffff12;border-radius:99px;margin-top:7px;overflow:hidden}.timerbar div{height:100%;width:100%;background:var(--gold);transition:width 1s linear}.result{text-align:center;padding:35px}.bigscore{font-size:58px;font-weight:900;color:var(--gold);margin:12px}.result h2{font-size:34px}.result p{color:var(--muted);line-height:1.6}.review{margin-top:20px;text-align:left;background:#ffffff08;border-radius:15px;padding:16px}.review-item{padding:11px 0;border-bottom:1px solid #ffffff12}.review-item:last-child{border:0}.review-item small{color:var(--muted)}.hidden{display:none!important}.footer{text-align:center;color:#71809f;font-size:12px;margin-top:25px}
+@media(max-width:650px){.stats{grid-template-columns:repeat(2,1fr)}.answers{grid-template-columns:1fr}.hero{padding:24px}.top{align-items:flex-start}.pill{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><div class="logo">🧠</div><div><h1>Desafio do Saber</h1><small>Aprender também pode ser uma aventura</small></div></div><div class="pill">🎓 Nível intermediário</div></header>
+<main>
+<section id="home" class="screen active">
+ <div class="hero">
+  <div class="eyebrow">Jogo educacional • Todas as matérias</div>
+  <h2>Teste seus conhecimentos.<br><span style="color:#a9bcff">Supere seus limites.</span></h2>
+  <p>Responda a perguntas de diferentes disciplinas, acumule pontos, mantenha sua sequência de acertos e desbloqueie sua melhor pontuação. Cada partida tem 10 questões variadas.</p>
+  <div class="subjects">
+   <div class="subject"><span>➗</span>Matemática</div><div class="subject"><span>📚</span>Português</div><div class="subject"><span>🌎</span>Geografia</div><div class="subject"><span>🏛️</span>História</div><div class="subject"><span>🧪</span>Ciências</div><div class="subject"><span>💻</span>Tecnologia</div><div class="subject"><span>🇬🇧</span>Inglês</div><div class="subject"><span>🎨</span>Artes</div>
+  </div>
+  <div class="row"><button class="primary" id="startBtn">Começar partida →</button><button class="secondary" id="howBtn">Como jogar?</button></div>
+ </div>
+ <div id="how" class="gamebox hidden" style="margin-top:15px"><strong>Regras do desafio</strong><p style="color:var(--muted);line-height:1.7">• São 10 perguntas aleatórias por partida.<br>• Você tem 20 segundos para responder cada questão.<br>• Cada acerto vale 100 pontos, com bônus por sequência.<br>• Uma resposta errada ou o tempo esgotado encerra a questão, mas você continua jogando.<br>• No final, veja seu desempenho e revise as explicações.</p></div>
+</section>
+<section id="play" class="screen">
+ <div class="stats">
+  <div class="stat"><small>⭐ Pontuação</small><strong id="score">0</strong></div><div class="stat"><small>❤️ Vidas</small><strong id="lives">3</strong></div><div class="stat"><small>🔥 Sequência</small><strong id="streak">0</strong></div><div class="stat"><small>⏱️ Tempo</small><strong id="time">20s</strong><div class="timerbar"><div id="timerFill"></div></div></div>
+ </div>
+ <div class="gamebox">
+  <div class="qmeta"><span id="qCount">Questão 1 de 10</span><span class="tag" id="category">Matemática</span></div>
+  <div class="progressline"><div id="progress"></div></div>
+  <h2 class="question" id="question">Pergunta</h2>
+  <div class="answers" id="answers"></div>
+  <div class="feedback" id="feedback"></div>
+  <div class="gamefoot"><span style="color:var(--muted);font-size:13px" id="hint">Escolha uma alternativa.</span><button class="primary hidden" id="nextBtn">Próxima →</button></div>
+ </div>
+</section>
+<section id="end" class="screen">
+ <div class="gamebox result">
+  <div class="eyebrow">Partida concluída</div><h2 id="resultTitle">Muito bem!</h2><div class="bigscore" id="finalScore">0</div><strong>pontos</strong>
+  <p id="resultText"></p>
+  <div class="stats" style="text-align:left;margin-top:24px"><div class="stat"><small>✅ Acertos</small><strong id="rightCount">0</strong></div><div class="stat"><small>❌ Erros</small><strong id="wrongCount">0</strong></div><div class="stat"><small>🎯 Aproveitamento</small><strong id="accuracy">0%</strong></div><div class="stat"><small>🏆 Recorde</small><strong id="bestScore">0</strong></div></div>
+  <div class="row" style="justify-content:center;margin-top:22px"><button class="primary" id="againBtn">Jogar novamente</button><button class="secondary" id="homeBtn">Voltar ao início</button></div>
+  <div class="review" id="review"><strong>📖 Revisão das respostas</strong><div id="reviewList"></div></div>
+ </div>
+</section>
+</main>
+<div class="footer">DESAFIO DO SABER • Desenvolvido para estudar e se divertir</div>
+</div>
+<script>
+const bank=[
+{c:"Matemática",q:"Quanto é 15% de 200?",a:["20","25","30","35"],k:2,e:"10% de 200 é 20 e 5% é 10. Somando, 15% corresponde a 30."},
+{c:"Matemática",q:"Se 3x + 5 = 20, qual é o valor de x?",a:["3","5","7","8"],k:1,e:"Subtraindo 5 dos dois lados: 3x = 15. Dividindo por 3: x = 5."},
+{c:"Matemática",q:"Qual é a área de um triângulo com base 10 cm e altura 6 cm?",a:["60 cm²","30 cm²","16 cm²","40 cm²"],k:1,e:"A área do triângulo é (base × altura) ÷ 2: (10 × 6) ÷ 2 = 30 cm²."},
+{c:"Português",q:"Na frase “Embora estivesse cansado, continuou estudando”, a palavra “embora” indica:",a:["Causa","Conclusão","Concessão","Finalidade"],k:2,e:"“Embora” introduz uma ideia de concessão: algo acontece apesar de uma condição contrária."},
+{c:"Português",q:"Qual alternativa apresenta uma palavra proparoxítona?",a:["Café","Lâmpada","Papel","Também"],k:1,e:"“Lâmpada” tem a antepenúltima sílaba tônica. Toda proparoxítona é acentuada."},
+{c:"Português",q:"Em “Os alunos organizaram a feira”, qual é o sujeito?",a:["A feira","Organizaram","Os alunos","Sujeito oculto"],k:2,e:"“Os alunos” é quem pratica a ação de organizar; portanto, é o sujeito da oração."},
+{c:"Geografia",q:"Qual linha imaginária divide a Terra em hemisférios Norte e Sul?",a:["Meridiano de Greenwich","Trópico de Capricórnio","Linha do Equador","Círculo Polar Ártico"],k:2,e:"A Linha do Equador está na latitude 0° e divide o planeta em hemisférios Norte e Sul."},
+{c:"Geografia",q:"Qual é o maior bioma brasileiro em extensão territorial?",a:["Cerrado","Amazônia","Caatinga","Pantanal"],k:1,e:"A Amazônia é o maior bioma brasileiro, ocupando grande parte da região Norte."},
+{c:"Geografia",q:"O movimento de rotação da Terra está relacionado principalmente:",a:["Às estações do ano","Às fases da Lua","À alternância entre dia e noite","Às marés"],k:2,e:"A rotação é o giro da Terra em torno do próprio eixo, produzindo a alternância entre dia e noite."},
+{c:"História",q:"Em que ano foi proclamada a Independência do Brasil?",a:["1500","1822","1888","1889"],k:1,e:"A Independência do Brasil foi proclamada em 7 de setembro de 1822."},
+{c:"História",q:"A Revolução Industrial começou primeiro em qual país?",a:["França","Alemanha","Inglaterra","Itália"],k:2,e:"A Revolução Industrial começou na Inglaterra, no século XVIII, impulsionada por mudanças tecnológicas e econômicas."},
+{c:"História",q:"A Lei Áurea, assinada em 1888, determinou:",a:["A proclamação da República","O fim legal da escravidão no Brasil","A Independência do Brasil","O início da industrialização"],k:1,e:"A Lei Áurea, assinada pela princesa Isabel em 13 de maio de 1888, aboliu legalmente a escravidão no Brasil."},
+{c:"Ciências",q:"Qual organela celular é conhecida por produzir grande parte da energia da célula?",a:["Ribossomo","Mitocôndria","Lisossomo","Núcleo"],k:1,e:"A mitocôndria realiza etapas da respiração celular e produz ATP, usado como fonte de energia."},
+{c:"Ciências",q:"Qual gás é absorvido pelas plantas durante a fotossíntese?",a:["Oxigênio","Nitrogênio","Gás carbônico","Hidrogênio"],k:2,e:"Na fotossíntese, as plantas absorvem gás carbônico e água e, usando energia luminosa, produzem matéria orgânica e liberam oxigênio."},
+{c:"Ciências",q:"A água passa do estado líquido para o gasoso no processo de:",a:["Condensação","Solidificação","Evaporação","Fusão"],k:2,e:"Evaporação é a passagem gradual do estado líquido para o gasoso."},
+{c:"Tecnologia",q:"O que significa a sigla HTML?",a:["HyperText Markup Language","High Transfer Machine Link","Home Tool Markup Language","Hyperlink Text Main Language"],k:0,e:"HTML significa HyperText Markup Language e estrutura o conteúdo de páginas web."},
+{c:"Tecnologia",q:"Em programação, uma variável é utilizada para:",a:["Apagar o sistema","Armazenar um valor que pode ser utilizado pelo programa","Desligar o computador","Criar apenas imagens"],k:1,e:"Variáveis são espaços identificados na memória usados para guardar dados durante a execução."},
+{c:"Tecnologia",q:"Qual destas opções é uma linguagem de programação?",a:["HTTP","CSS","Python","JPEG"],k:2,e:"Python é uma linguagem de programação. HTML estrutura páginas e CSS define estilos."},
+{c:"Inglês",q:"Qual é a tradução mais adequada de “I have been studying”?",a:["Eu estudarei","Eu estive estudando / Tenho estudado","Eu estudo ontem","Eu vou estudar"],k:1,e:"A estrutura “have been + verbo com -ing” expressa uma ação que começou no passado e continua ou tem relevância no presente."},
+{c:"Inglês",q:"Choose the correct option: “She ___ to school every day.”",a:["go","going","goes","gone"],k:2,e:"Com “she” no simple present, o verbo “go” recebe -es: “She goes”."},
+{c:"Inglês",q:"What is the opposite of “expensive”?",a:["Cheap","Difficult","Beautiful","Early"],k:0,e:"“Cheap” significa barato, o contrário de “expensive” (caro)."},
+{c:"Artes",q:"Quais são consideradas cores primárias no modelo tradicional de pintura?",a:["Verde, laranja e roxo","Vermelho, amarelo e azul","Preto, branco e cinza","Rosa, marrom e verde"],k:1,e:"No modelo tradicional de pigmentos ensinado na pintura, as cores primárias são vermelho, amarelo e azul."},
+{c:"Artes",q:"A técnica artística que utiliza pequenos pontos de cor para formar imagens é chamada de:",a:["Cubismo","Pontilhismo","Surrealismo","Gravura"],k:1,e:"O pontilhismo constrói imagens por meio de pequenos pontos de cor, que se misturam visualmente à distância."},
+{c:"Artes",q:"Qual elemento visual está relacionado à sensação de claro e escuro?",a:["Textura","Volume","Valor tonal","Perspectiva"],k:2,e:"Valor tonal é o grau de luminosidade ou escuridão de uma cor, ajudando a criar contraste e volume."}
+];
+const $=id=>document.getElementById(id);
+let questions=[],index=0,score=0,lives=3,streak=0,correct=0,wrong=0,seconds=20,tick=null,locked=false,history=[];
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active')}
+function shuffle(arr){return [...arr].sort(()=>Math.random()-.5)}
+function start(){questions=shuffle(bank).slice(0,10);index=0;score=0;lives=3;streak=0;correct=0;wrong=0;history=[];show('play');render()}
+function render(){locked=false;seconds=20;$('score').textContent=score;$('lives').textContent='❤️'.repeat(lives);$('streak').textContent=streak;$('time').textContent=seconds+'s';$('timerFill').style.width='100%';$('qCount').textContent=`Questão ${index+1} de ${questions.length}`;$('category').textContent=questions[index].c;$('progress').style.width=(index/questions.length*100)+'%';$('question').textContent=questions[index].q;$('feedback').className='feedback';$('feedback').textContent='';$('nextBtn').classList.add('hidden');$('hint').textContent='Escolha uma alternativa.';const letters=['A','B','C','D'];$('answers').innerHTML='';questions[index].a.forEach((v,i)=>{const b=document.createElement('button');b.className='answer';b.innerHTML=`<span class="letter">${letters[i]}</span>${v}`;b.onclick=()=>answer(i);$('answers').appendChild(b)});clearInterval(tick);tick=setInterval(()=>{seconds--;$('time').textContent=seconds+'s';$('timerFill').style.width=(seconds/20*100)+'%';if(seconds<=0){clearInterval(tick);answer(-1)}},1000)}
+function answer(choice){if(locked)return;locked=true;clearInterval(tick);const q=questions[index],buttons=[...document.querySelectorAll('.answer')],ok=choice===q.k;buttons.forEach((b,i)=>{b.disabled=true;if(i===q.k)b.classList.add('correct');if(i===choice&&!ok)b.classList.add('wrong')});if(ok){correct++;streak++;const earned=100+Math.min(streak-1,5)*20;score+=earned;$('hint').textContent=`+${earned} pontos`; }else{wrong++;streak=0;lives=Math.max(0,lives-1);$('hint').textContent=choice===-1?'Tempo esgotado!':'Resposta incorreta.'} $('score').textContent=score;$('lives').textContent='❤️'.repeat(lives)+'🖤'.repeat(3-lives);$('streak').textContent=streak;const fb=$('feedback');fb.innerHTML=`<strong>${ok?'✅ Resposta correta!':'📘 Vamos aprender:'}</strong><br>${q.e}`;fb.classList.add('show');history.push({q:q.q,chosen:choice<0?'Tempo esgotado':q.a[choice],right:q.a[q.k],ok,e:q.e});$('nextBtn').classList.remove('hidden');$('nextBtn').textContent=index===questions.length-1||lives===0?'Ver resultado →':'Próxima →';}
+function next(){if(!locked)return;if(index===questions.length-1||lives===0){finish();return}index++;render()}
+function finish(){clearInterval(tick);show('end');const pct=Math.round(correct/history.length*100);let best=Number(localStorage.getItem('desafioBest')||0);if(score>best){best=score;localStorage.setItem('desafioBest',best)}$('finalScore').textContent=score;$('rightCount').textContent=correct;$('wrongCount').textContent=wrong;$('accuracy').textContent=pct+'%';$('bestScore').textContent=best;$('resultTitle').textContent=pct>=80?'🏆 Excelente desempenho!':pct>=50?'👏 Bom trabalho!':'💪 Continue praticando!';$('resultText').textContent=pct>=80?'Você demonstrou um ótimo domínio de várias matérias. Continue assim!':pct>=50?'Você está no caminho certo. Revise os temas e tente melhorar sua pontuação.':'Cada tentativa é uma oportunidade de aprender. Leia as explicações e tente novamente!';$('reviewList').innerHTML='';history.forEach((h,i)=>{const d=document.createElement('div');d.className='review-item';d.innerHTML=`<strong>${i+1}. ${h.q}</strong><br><small>${h.ok?'Acertou':'Sua resposta: '+h.chosen+' • Correta: '+h.right}<br>${h.e}</small>`;$('reviewList').appendChild(d)})}
+$('startBtn').onclick=start;$('againBtn').onclick=start;$('nextBtn').onclick=next;$('homeBtn').onclick=()=>show('home');$('howBtn').onclick=()=>$('how').classList.toggle('hidden');
+</script>
+</body>
+</html>
